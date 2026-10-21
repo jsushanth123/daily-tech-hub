@@ -14,7 +14,9 @@
     "seed:demo": "node -e \"require('./src/lib/db.ts')\" 2>/dev/null || node scripts/seed-demo.mjs",
     "generate:v3": "node scripts/generate-v3-content.mjs",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "test:gitsim": "npx -y tsx scripts/tests/gitsim.test.ts",
+    "test:git-e2e": "node scripts/tests/git-e2e.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.8",
