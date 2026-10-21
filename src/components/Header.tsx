@@ -12,6 +12,7 @@ import { PlainEnglishToggle } from "@/components/PlainEnglishToggle";
 const NAV = [
   { href: "/", label: "Today" },
   { href: "/training", label: "Training" },
+  { href: "/git/sandbox", label: "Git Lab" },
   { href: "/shortcuts", label: "Shortcuts" },
   { href: "/news", label: "News" },
   { href: "/releases", label: "Releases" },

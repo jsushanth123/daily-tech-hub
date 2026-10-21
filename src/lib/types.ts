@@ -59,6 +59,8 @@ export interface TrainingLesson {
   cheatSheet?: CheatSheetEntry[];
   quiz?: QuizQuestion[];
   steps?: LessonStep[];
+  /** Interactive Git sandbox lab id (git track). */
+  lab?: string;
   updatedAt: string;
 }
 

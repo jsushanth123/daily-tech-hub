@@ -12,6 +12,9 @@ import { CompleteButton } from "@/components/training/CompleteButton";
 import { CopyButton } from "@/components/CopyButton";
 import { TryItBox } from "@/components/training/TryItBox";
 import { StepCards } from "@/components/training/StepCards";
+import { CodeCopyEnhancer } from "@/components/CodeCopyEnhancer";
+import { GitLab } from "@/components/git/GitLab";
+import { StrategyDiagram } from "@/components/git/StrategyDiagram";
 
 export function generateStaticParams() {
   return getAllLessons().map((l) => ({ track: l.track, slug: l.slug }));
@@ -135,9 +138,24 @@ export default async function LessonPage({
           />
         ) : null}
 
-        <div className="mt-10">
-          <Markdown source={lesson.content} />
-        </div>
+        {lesson.track === "git" ? (
+          <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold">
+            <Link href="/git/sandbox" className="rounded-full border border-[var(--violet)]/40 bg-[var(--violet)]/10 px-3 py-1.5 text-[var(--ink-fg)] hover:bg-[var(--violet)]/20">🧪 Free sandbox</Link>
+            <Link href="/git/cheat-sheet" className="rounded-full border border-[var(--sky)]/40 bg-[var(--sky)]/10 px-3 py-1.5 text-[var(--ink-fg)] hover:bg-[var(--sky)]/20">📋 Cheat sheet</Link>
+            <Link href="/git/glossary" className="rounded-full border border-[var(--mint)]/40 bg-[var(--mint)]/10 px-3 py-1.5 text-[var(--ink-fg)] hover:bg-[var(--mint)]/20">📖 Glossary</Link>
+            {lesson.lab ? <a href="#lab" className="rounded-full border border-[var(--coral)]/40 bg-[var(--coral)]/10 px-3 py-1.5 text-[var(--ink-fg)] hover:bg-[var(--coral)]/20">⌨️ Jump to lab</a> : null}
+          </div>
+        ) : null}
+
+        <CodeCopyEnhancer>
+          <div className="mt-10">
+            {lesson.content.split(/\{\{diagram:([\w-]+)\}\}/).map((part, i) =>
+              i % 2 === 1 ? <StrategyDiagram key={i} id={part} /> : part.trim() ? <Markdown key={i} source={part} /> : null,
+            )}
+          </div>
+        </CodeCopyEnhancer>
+
+        {lesson.lab ? <GitLab labId={lesson.lab} /> : null}
 
         {lesson.quiz?.length ? (
           <Quiz questions={lesson.quiz} track={lesson.track} slug={lesson.slug} />

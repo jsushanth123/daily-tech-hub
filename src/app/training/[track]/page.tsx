@@ -66,6 +66,25 @@ export default async function TrackPage({
         <TrackSceneClient track={track} />
       </div>
 
+      {track === "git" ? (
+        <div className="grid gap-3 sm:grid-cols-3" data-testid="git-hub-links">
+          {[
+            { href: "/git/sandbox", emoji: "🧪", title: "Free sandbox", body: "Type real Git commands, see the graph live." },
+            { href: "/git/cheat-sheet", emoji: "📋", title: "Cheat sheet", body: "Every command, one page, copy buttons." },
+            { href: "/git/glossary", emoji: "📖", title: "Glossary", body: "Git words in plain English." },
+          ].map((c) => (
+            <Link key={c.href} href={c.href} className="panel rounded-2xl p-4 transition hover:-translate-y-0.5">
+              <p className="text-2xl">{c.emoji}</p>
+              <p className="mt-1 font-display font-bold text-[var(--ink-fg)]">{c.title}</p>
+              <p className="text-sm text-[var(--muted)]">{c.body}</p>
+            </Link>
+          ))}
+          <p className="text-sm text-[var(--muted)] sm:col-span-3">
+            Modules 1–12 teach the commands, 13–19 cover branching strategies (GitHub Flow, Git Flow, trunk-based, GitLab Flow, release branches, forking) with diagrams and team simulations, and 20 is the capstone team simulation. Every lesson has a hands-on lab with auto-checks.
+          </p>
+        </div>
+      ) : null}
+
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {lessons.map((lesson) => (
           <LessonCard key={lesson.slug} lesson={lesson} />

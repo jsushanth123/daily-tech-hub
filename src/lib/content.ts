@@ -59,6 +59,7 @@ function deriveSteps(content: string, hasQuiz: boolean): LessonStep[] {
   if (/## Exercises/i.test(content)) {
     steps.push({ id: "exercises", title: "Exercises" });
   }
+  if (/^lab:/m.test(content)) steps.push({ id: "lab", title: "Hands-on lab" });
   if (hasQuiz) steps.push({ id: "quiz", title: "Check understanding" });
   steps.push({ id: "complete", title: "Complete" });
   return steps;
@@ -89,7 +90,8 @@ export function getAllLessons(): TrainingLesson[] {
         exercises: (data.exercises as Exercise[] | undefined) ?? [],
         cheatSheet: (data.cheatSheet as CheatSheetEntry[] | undefined) ?? undefined,
         quiz,
-        steps: (data.steps as LessonStep[] | undefined) ?? deriveSteps(body, Boolean(quiz?.length)),
+        steps: (data.steps as LessonStep[] | undefined) ?? deriveSteps((data.lab ? "lab: x\n" : "") + body, Boolean(quiz?.length)),
+        lab: data.lab ? String(data.lab) : undefined,
         updatedAt: String(data.updatedAt),
       });
     }
