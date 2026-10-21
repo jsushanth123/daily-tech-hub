@@ -59,15 +59,17 @@ export const TRACKS: TrackMeta[] = [
   },
   {
     id: "git",
-    title: "Git (bonus)",
-    blurb: "Rebase, hygiene, and bisect workflows for analytics repos.",
-    accent: "from-[#A9A3C2] to-[#5C5675]",
-    difficulty: "Intermediate",
-    estimatedHours: 1.5,
+    title: "Git: Zero to Hero",
+    blurb:
+      "Hands-on Git from first commit to rebase, conflicts, remotes, and every branching strategy, with a live in-browser sandbox.",
+    accent: "from-[#9B5CFF] to-[#4CC9F0]",
+    difficulty: "Beginner → Advanced",
+    estimatedHours: 8,
+    badge: "New · Hands-on",
   },
 ];
 
-export const PRIMARY_TRACKS = TRACKS.filter((t) => t.id !== "git");
+export const PRIMARY_TRACKS = TRACKS;
 
 export function getTrackMeta(id: string): TrackMeta | undefined {
   return TRACKS.find((t) => t.id === id);

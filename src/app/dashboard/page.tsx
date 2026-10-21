@@ -60,7 +60,7 @@ const TRACK_SLUGS: Record<string, string[]> = {
     "sf-governance-rbac",
     "sf-snowpark-python",
   ],
-  git: ["git-rebase-vs-merge", "git-commit-hygiene", "git-bisect-and-blame"],
+  git: ["git-what-is-git-setup", "git-staging-commits", "git-history", "git-undoing", "git-branches-merging", "git-merge-conflicts", "git-rebase", "git-remotes", "git-stash-cherry-pick-tags-reflog", "git-gitignore", "git-pull-requests-review", "git-bisect-blame-worktrees-hooks", "git-branching-strategies", "git-github-flow", "git-git-flow", "git-trunk-based", "git-gitlab-flow", "git-release-branching", "git-forking-workflow", "git-capstone-team-simulation"],
 };
 
 const TRACK_HUE: Record<string, string> = {
@@ -70,7 +70,7 @@ const TRACK_HUE: Record<string, string> = {
   sql: "var(--mint)",
   databricks: "var(--coral)",
   snowflake: "var(--sky)",
-  git: "var(--muted)",
+  git: "var(--violet)",
 };
 
 export default function DashboardPage() {

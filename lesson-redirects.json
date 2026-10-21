@@ -433,5 +433,35 @@
     "source": "/training/snowflake/02-time-travel-clones",
     "destination": "/training/snowflake/sf-time-travel-clones",
     "permanent": true
+  },
+  {
+    "source": "/training/git/git-rebase-vs-merge",
+    "destination": "/training/git/git-rebase",
+    "permanent": true
+  },
+  {
+    "source": "/training/git/01-rebase-vs-merge",
+    "destination": "/training/git/git-rebase",
+    "permanent": true
+  },
+  {
+    "source": "/training/git/git-commit-hygiene",
+    "destination": "/training/git/git-staging-commits",
+    "permanent": true
+  },
+  {
+    "source": "/training/git/02-commit-hygiene",
+    "destination": "/training/git/git-staging-commits",
+    "permanent": true
+  },
+  {
+    "source": "/training/git/git-bisect-and-blame",
+    "destination": "/training/git/git-bisect-blame-worktrees-hooks",
+    "permanent": true
+  },
+  {
+    "source": "/training/git/03-bisect-and-blame",
+    "destination": "/training/git/git-bisect-blame-worktrees-hooks",
+    "permanent": true
   }
 ]
