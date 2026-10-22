@@ -39,3 +39,16 @@ When opening a pull request:
 2. Explain why the changes are necessary.
 3. Include any relevant testing information.
 4. Review your changes before requesting a merge.
+
+## Keeping Your Fork Updated
+
+The original repository may receive changes while you are working.
+
+To retrieve the latest changes from the original repository:
+
+1. Run `git fetch upstream` to download the latest remote information.
+2. Switch to your local main branch using `git switch main`.
+3. Run `git merge upstream/main` to incorporate upstream changes.
+4. Run `git push origin main` to update your fork on GitHub.
+
+Before starting new work, create a feature branch from an updated main branch.
